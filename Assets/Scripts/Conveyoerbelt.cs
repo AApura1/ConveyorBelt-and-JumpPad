@@ -12,15 +12,12 @@ public class Conveyorbelt : MonoBehaviour
 
         if (rb == null) return;
 
-        // Convert the local belt direction to world direction
         Vector3 direction =
             transform.TransformDirection(beltDirection).normalized;
 
-        // Prevent upward or downward movement from the belt
         direction.y = 0f;
         direction.Normalize();
 
-        // Measure current speed along the belt
         float currentSpeed = Vector3.Dot(
             rb.linearVelocity, direction
         );
